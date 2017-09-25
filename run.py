@@ -17,6 +17,7 @@ for index in range(len(modules)):
     view_class = getattr(import_module,view_classes[index])
     cls_obj = view_class()
     cls_obj.register(app)
+print ""
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
