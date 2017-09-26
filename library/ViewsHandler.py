@@ -8,4 +8,6 @@ def get_views():
 def get_class():
     view_files = get_dir_files(view_file_path)
     return view_files
+if __name__=='__main__':
+    print get_views()
 
