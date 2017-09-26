@@ -1,12 +1,12 @@
 #coding:utf-8
-from flask import Flask
+from app import app
 import importlib
 from library.ViewsHandler import  get_views,get_class
 
 from views.QuotesView import QuotesView
 from views.TestView import TestView
 
-app = Flask(__name__)
+
 
 modules = get_views()
 view_classes = get_class()
@@ -20,4 +20,4 @@ for index in range(len(modules)):
 print "vscode test"
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
