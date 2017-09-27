@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Hello world!{% endblock %}
+{% block body %}
+
+    <div class="container">
+<table class="table">
+      <caption>用户列表</caption>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>类型</th>
+          <th>待办</th>
+          <th>添加时间</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for post in post_list %}
+        <tr>
+          <th scope="row">{{ post.id }}</th>
+          <td>{{post.category_id}}</td>
+          <td>{{post.body}}</td>
+          <td>{{post.pub_date}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+      {% for i in range(0,page) %}
+
+    <li><a href="#">{{ i + 1 }}</a></li>
+{% endfor %}
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+{% endblock %}

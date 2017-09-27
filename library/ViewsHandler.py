@@ -1,6 +1,6 @@
 
 from  utils.FileTools import get_dir_files
-view_file_path = r"E:\maxlong\python\projects\FlaskDemo\views"
+view_file_path = r"E:\Tinklone\repository\git\flaskdemo_todo\views"
 def get_views():
     view_files = get_dir_files(view_file_path)
     return ["views.%s"%vf for vf in view_files]
