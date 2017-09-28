@@ -1,0 +1,1 @@
+export PYTHONPATH=$PYTHONPATH:/data/maxlong/flaskdemo_todo/
