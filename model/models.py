@@ -2,9 +2,11 @@
 from app import app
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:@127.0.0.1:3306/todo"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:@127.0.0.1:3306/todo"
 track_modifications = app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS',True)
 db = SQLAlchemy(app)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True)
