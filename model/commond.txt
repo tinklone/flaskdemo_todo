@@ -1,0 +1,4 @@
+python models.py db init
+python models.py db migrate
+python models.py db upgrade
+python models.py db --help
