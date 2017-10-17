@@ -25,5 +25,5 @@ class IndexView(FlaskView):
         openid = json.loads(r.content[10:-3])['openid']
         get_user_info = 'https://graph.qq.com/user/get_user_info?access_token=%s&oauth_consumer_key=101433876&openid=%s'%(dict_r['access_token'][0],openid)
         r = requests.get(get_user_info)
-        print r.content
-        return "index view"
+        user_dict = json.loads(r.content) 
+        return "hi,%s"%user_dict['nickname']
