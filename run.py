@@ -5,6 +5,7 @@ from library.ViewsHandler import get_views, get_class
 
 from views.QuotesView import QuotesView
 from views.TestView import TestView
+import os
 
 modules = get_views()
 view_classes = get_class()
@@ -21,4 +22,7 @@ for index in range(len(modules)):
 print "vscode test"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = 5000
+    if os.name == 'nt':
+        port = 80
+    app.run(debug=True, port=port)
