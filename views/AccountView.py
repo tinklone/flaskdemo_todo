@@ -1,5 +1,5 @@
 # coding:utf-8
-from flask import render_template, request
+from flask import render_template, request,redirect
 from flask_classy import FlaskView
 from service.post import PostService
 from service.category import CategoryService
@@ -9,8 +9,9 @@ class AccountView(FlaskView):
     def index(self):
         return render_template('login.html')
 
-    def get(self, id):
-        return ""
+    def auth(self):
+        auth_url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101433876&redirect_uri=http://www.51tongyue.com"
+        return redirect(auth_url)
 
     def add(self):
         category = CategoryService()
@@ -20,7 +21,7 @@ class AccountView(FlaskView):
     def list(self):
         postservice = PostService()
         post_list = postservice.get_list()
-        return render_template('list.html', post_list=post_list, page = len(post_list) / 5 + 1)
+        return render_template('list.html', post_list=post_list, page=len(post_list) / 5 + 1)
 
     def post(self):
         todo_content = request.form.get("content")
